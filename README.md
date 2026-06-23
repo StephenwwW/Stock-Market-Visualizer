@@ -38,11 +38,9 @@ An interactive, frontend-only data visualization tool built with HTML, Tailwind 
 **2. Clone the Repository**
 
 ```bash
-git clone [https://github.com/StephenwwW/2026_stock_visualizer.git]
-(https://github.com/StephenwwW/2026_stock_visualizer.git)
+git clone https://github.com/StephenwwW/2026_stock_visualizer.git
 cd 2026_stock_visualizer
-
-```
+````
 
 **3. Install Dependencies**
 
