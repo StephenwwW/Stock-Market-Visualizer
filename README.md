@@ -25,7 +25,9 @@ An interactive, frontend-only data visualization tool built with HTML, Tailwind 
 
 ### User Interface
 
-![Application Demo GIF](images/usage_demo.gif) *(Add your demo gif/screenshot here)*
+![Application Demo](images/market.png) 
+
+![Application Demo](images/tech.png) 
 
 ### Setup & Installation
 
