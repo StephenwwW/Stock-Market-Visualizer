@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 美股科技巨頭與半導體股價趨勢 (高低點精準版)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* 深色背景 */
+            color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            height: 75vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 bg-slate-900">
+
+    <div class="w-full max-w-6xl bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl p-6 md:p-8">
+        
+        <!-- 標題與說明 -->
+        <div class="mb-4 text-center">
+            <h1 class="text-2xl font-bold text-slate-100 mb-2">2026 H1 Tech Stocks Market Structure Chart</h1>
+            <p class="text-sm text-slate-400">
+                Absolute intraday highs and lows have been integrated. Enlarged line nodes indicate points where yearly extreme values were reached. 
+                <br>Hover over the nodes to simultaneously view the intraday extreme price and the monthly closing price.
+            </p>
+        </div>
+
+        <!-- 自訂義的雙排圖例容器 -->
+        <div id="customLegend" class="grid grid-cols-4 md:grid-cols-8 gap-y-4 gap-x-2 mb-6 justify-items-center"></div>
+
+        <div class="chart-container">
+            <canvas id="stockChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('I.1q(\'2L\',G(){g m=I.1F(\'3x\').3T(\'2d\');g 16=[\'1月\',\'2月\',\'3月\',\'4月\',\'5月\',\'6月\'];g v=[{c:\'3W\',e:[3a.51,2U.21,3c.24,3X.41,3K.40,3U.1N],b:[8,8,\'年度最低\',8,\'年度最高\',8],f:\'#1p\',d:\'#1p\'},{c:\'3V\',e:[19.34,1W.3S,1J.3R,2Z.Y,2Q.1g,1J.34],b:[8,8,\'年度最低\',8,\'年度最高\',8],i:[8,8,2V.34,8,8,8],f:\'#1S\',d:\'#1S\'},{c:\'2P\',e:[3J.25,3i.25,3j.33,3h.3g,3e.45,3f.S],b:[8,8,\'年度最低\',\'年度最高\',8,8],f:\'#1K\',d:\'#1K\'},{c:\'3k\',e:[3l.30,3q.Z,1U.34,3r.Z,3p.3o,3m.R],b:[8,8,\'年度最低\',8,\'年度最高\',8],f:\'#1P\',d:\'#1P\'},{c:\'3n\',e:[3d.1w,2W.15,2T.20,1U.55,2R.32,2S.2X],b:[8,8,\'年度最低\',8,\'年度最高\',8],f:\'#1X\',d:\'#1X\'},{c:\'2Y\',e:[3b.50,37.11,36.29,2a.1b,35.41,3s.3t],b:[\'年度最高\',8,\'年度最低\',8,8,8],f:\'#1f\',d:\'#1f\'},{c:\'3P\',e:[19.47,3Q.57,3O.42,3N.28,3L.1I,3M.1w],b:[8,8,\'年度最低\',8,\'年度最高\',8],f:\'#1x\',d:\'#1x\'},{c:\'3z\',e:[3A.50,3y.50,3u.1u,3v.Z,1Z.30,3w.R],b:[8,8,\'年度最低\',8,8,\'年度最高\'],i:[8,8,8,8,8,3B.28],f:\'#1G\',d:\'#1G\'},{c:\'3C\',e:[3H.3I,3G.32,3F.42,3D.12,3E.3Z,2N.56],b:[8,8,\'年度最低\',8,8,\'年度最高\'],i:[8,8,8,8,8,2m.38],f:\'#1n\',d:\'#1n\'},{c:\'2l\',e:[2f.17,2e.17,2o.43,2k.17,2i.2h,2g.2j],b:[8,8,\'年度最低\',8,8,\'年度最高\'],i:[8,8,8,8,8,2b.2n],f:\'#1s\',d:\'#1s\'},{c:\'2c\',e:[2O.S,2H.48,2G.1L,2F.2D,1R.2E,2I.2J],b:[8,8,\'年度最低\',8,\'年度最高\',8],f:\'#1a\',d:\'#1a\'},{c:\'2p\',e:[2M.32,1d.1g,2K.51,1Z.22,2C.2B,1W.13],b:[8,8,\'年度最低\',8,\'年度最高\',8],f:\'#26\',d:\'#26\'},{c:\'2u\',e:[46.38,45.58,39.38,Y.48,2t.S,2s.45],b:[8,8,\'年度最低\',8,8,\'年度最高\'],i:[8,8,8,8,8,2q.Y],f:\'#1O\',d:\'#1O\'},{c:\'2r 2v\',e:[2w.1I,2a.51,2A.58,2z.40,2y.31,2x.1u],B:[3Y,4A,5G,5L,5M,5K],b:[8,8,\'年度最低\',8,8,\'年度最高\'],i:[8,8,8,8,8,5P.5E],q:[8,8,8,8,8,5n],p:\'1D\',f:\'#1Q\',d:\'#1Q\'},{c:\'5o\',e:[5l.5g,5i.1N,5j.20,1R.1L,5r.42,5C.R],B:[5y,5x,5w,5v,5t,5u],b:[8,\'區間低點\',8,8,\'年度最高\',8],i:[8,8,8,8,5z.40,8],q:[8,8,8,8,44,8],p:\'1D\',f:\'#1E\',d:\'#1E\'},{c:\'5D\',e:[5B.18,5A.18,13.1b,1d.50,5k.56,5h.38],B:[5m,5q,5F,5p,5S,5R],b:[8,8,\'年度最低\',8,8,\'年度最高\'],i:[8,8,8,8,8,5U.38],q:[8,8,8,8,8,5W],p:\'5T\',f:\'#1l\',d:\'#1l\'}];v.1M(a=>{a.5O=0.15;a.1m=3;a.5I=G(k){H(a.b&&a.b[k.j])?7:3};a.5J=G(k){H(a.b&&a.b[k.j])?9:6}});g 1H={1e:\'5H\',e:{16:16,v:v},5N:{5V:U,5Q:o,5s:{5e:\'A\',4t:o,},4u:{4s:{T:o},4r:{T:o},4p:{d:\'4q(15, 23, 42, 0.4v)\',4w:\'#4B\',4C:\'#5f\',f:\'#1i\',1m:1,1V:12,4z:6,4x:U,4y:{c:G(k){g a=k.a;g j=k.j;F E=a.c||\'\';r(E)E+=\': \';g 1t=u O.M(\'N-J\',{t:\'l\',l:\'1r\'}).K(k.4o.y);F V=\'\';r(a.p&&a.B){V=`(${u O.M(\'N-J\',{t:\'l\',l:a.p,1A:0}).K(a.B[j])})`}F C=`${E}${1t}${V}`;g b=a.b&&a.b[j];r(b){C+=`[${b}]`}g i=a.i&&a.i[j];r(i){g 1y=u O.M(\'N-J\',{t:\'l\',l:\'1r\'}).K(i);F X=\'\';r(a.q&&a.q[j]){X=`(${u O.M(\'N-J\',{t:\'l\',l:a.p,1A:0}).K(a.q[j])})`}g 1k=`↳當月結算:${1y}${X}`;H[C,1k]}H C}}}},4n:{x:{1j:{z:\'#4d\',4e:o},1Y:{z:\'#27\',W:{1T:14}}},y:{1e:\'4c\',4b:U,49:{T:o},1j:{z:(m)=>(m.D&&m.D.s%Q===0)?\'#1i\':\'#4a\',4f:(m)=>(m.D&&m.D.s%Q===0)?1.5:1,4g:o,},1Y:{4l:50,z:\'#27\',1V:10,4m:(s)=>(s%Q===0)?\'$\'+s:\'\',W:{1T:12}}}}}};g L=u 4k(m,1H);g 1c=I.1F(\'4j\');v.1M((a,A)=>{g n=I.4h(\'4i\');n.4D=\'4E 4Z-52 4Y-2 4X-4V 4W-53 54-5d 5c-5b\';n.59=`<P 1z="w-4 h-4 5a-4U 4T-4J 4K-1B"t="4I-z: ${a.d}"></P><P 1z="1v-1B W-4H 1v-4F-4G">${a.c}</P>`;n.1q(\'4L\',()=>{r(L.4M(A)){L.4R(A);n.1o.4S(\'1C-30\',\'1h\')}4Q{L.4P(A);n.1o.4N(\'1C-30\',\'1h\')}});1c.4O(n)})});',62,369,'||||||||null||dataset|isExtreme|label|backgroundColor|data|borderColor|const||realClose|dataIndex|context|currency|ctx|legendItem|false|originalCurrency|realOriginalClose|if|value|style|new|datasets||||color|index|originalData|primaryLine|tick|labelTitle|let|function|return|document|US|format|chartInstance|NumberFormat|en|Intl|span|200|79|68|display|true|origStr|font|rcOrigStr|94|00|||||||labels||75|430|2dd4bf|81|legendContainer|319|type|60a5fa|62|grayscale|475569|grid|secondaryLine|f87171|borderWidth|f472b6|classList|ffffff|addEventListener|USD|a3e635|chartValStr|71|text|05|f43f5e|rcStr|class|maximumFractionDigits|sm|opacity|KRW|38bdf8|getElementById|fdba74|config|96|367|fbbf24|80|forEach|01|fde047|c084fc|e879f9|251|22d3ee|size|199|padding|392|4ade80|ticks|418|||||||818cf8|94a3b8|67||611|551|QCOM||213|252|562|97|515|98|323|AMD|1211|63|192|AVGO|140|SK|141|114|INTC|Hynix|653|2118|863|755|580|77|446|78|02|179|126|142|221|90|309|DOMContentLoaded|331|1213|151|GOOGL|483|225|208|175|264|370|177|65|META|407||||||632|547|648|||259|716|246|191|376|349|61|408|311|273|AMZN|239|232|NVDA|99|274|210|265|563|85|316|396|476|stockChart|374|TSM|330|467|MU|517|970|315|412|414|82|338|317|448|405|381|352|TSLA|402|07|84|getContext|297|MSFT|AAPL|271|909000|92|||||355000|||||border|1e293b|beginAtZero|linear|334155|drawBorder|lineWidth|drawTicks|createElement|div|customLegend|Chart|stepSize|callback|scales|parsed|tooltip|rgba|legend|title|intersect|plugins|95|titleColor|usePointStyle|callbacks|boxPadding|850000|f8fafc|bodyColor|className|flex|slate|100|bold|background|block|shadow|click|isDatasetVisible|remove|appendChild|show|else|hide|add|inline|full|pointer|transition|cursor|gap|items|||center|all|duration|||||innerHTML|rounded|none|select|300|mode|cbd5e1|60|704|241|248|411|244|15000|2920000|Samsung|51120|35000|269|interaction|374500|362500|350000|345000|335000|340000|255|218|93|260|Kioxia|72|2210|807000|line|pointRadius|pointHoverRadius|2945000|1050000|1200000|options|tension|2100|maintainAspectRatio|112700|65850|JPY|679|responsive|108700'.split('|'),0,{}))
+    </script>
+</body>
+</html>
