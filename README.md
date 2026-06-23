@@ -58,4 +58,7 @@ No installation is required! These are standalone front-end applications leverag
 
 ### License
 
-This project is released under the [MIT License](https://www.google.com/search?q=LICENSE).
+This project is released under the [MIT License](Stock-Market-Visualizer/LICENSE).
+
+
+
